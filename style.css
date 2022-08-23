@@ -1,0 +1,178 @@
+@font-face{
+    font-family: "Vt";
+    src: url("fonts/Vetka.otf")
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgb(230,230,230);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body > div{
+    width: 1000px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shadow{
+    box-shadow: 5px 5px 10px rgb(190,190,190),
+               -5px -5px 10px white;
+}
+
+#date_div{
+    display: flex;
+    margin: 7% 0 0 0;
+    width: 1000px;
+    height: 150px;
+    background-color: rgb(230,230,230);
+    border-radius: 30px;
+    justify-content: space-around;
+}
+
+.date_time{
+    display: block;
+    width: 460px;
+    letter-spacing: 8px;
+    font-size: 6.2em;
+    font-family: "Vt";
+    font-weight: 500;
+    word-spacing: 50px;
+}
+
+.date_time:nth-child(1){
+    padding-left: 40px;
+    text-align: left;
+}
+
+.date_time:nth-child(2){
+    padding-right: 40px;
+    text-align: right;
+}
+
+#list_div{
+    margin-top: auto;
+}
+
+#capitalo{
+    width: 200px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: rgb(230,230,230);
+    text-align-last: center;
+}
+
+
+option{
+    text-align: center;
+}
+
+@media (max-width:1100px){
+    body > div{
+        width: 800px;
+    }
+
+    #date_div{
+        width: 800px;
+        height: 120px;
+    }
+
+    .date_time{
+        font-size: 5em;
+    }
+}
+
+@media (max-width:900px){
+    body > div{
+        width: 600px;
+    }
+
+    #date_div{
+        width: 600px;
+        height: 100px;
+    }
+
+    .date_time{
+        font-size: 4em;
+    }
+}
+
+@media (max-width:700px){
+    body > div{
+        width: 400px;
+        height: 140px;
+    }
+
+    #date_div{
+        width: 400px;
+        height: 50px;
+    }
+
+    .date_time{
+        font-size: 2em;
+        font-weight: 900;
+    }
+
+    .date_time:nth-child(1){
+        padding-left: 15px;
+        text-align: left;
+    }
+    
+    .date_time:nth-child(2){
+        padding-right: 15px;
+        text-align: right;
+    }
+}
+
+@media (max-width:450px){
+    body > div{
+        width: 300px;
+        height: 120px;
+    }
+
+    #date_div{
+        width: 300px;
+        height: 32px;
+    }
+
+    .date_time{
+        font-size: 1.2em;
+        font-weight: 900;
+    }
+
+    .date_time:nth-child(1){
+        padding-left: 15px;
+        text-align: left;
+    }
+    
+    .date_time:nth-child(2){
+        padding-right: 15px;
+        text-align: right;
+    }
+}
+
+@keyframes trans{
+    0%{
+        color: black
+    }70%{
+        color: orange;
+        content: "00:00:00 00.00.0000";
+    }100%{
+        color: black;
+    }
+}
+
+@keyframes kostyl{
+
+}
+

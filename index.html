@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="description" content="Here you can turn your regular text into demonic, known as Zalgo text">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keywords" content="demonic text, zalgo text, text generator, демонический текст, генератор демонического текста, текст zalgo, zalgo, залго текст"> 
+    <meta name="Author" content="t2w2o2d2">
+    <meta property="og:title" content="Demonic text generator">
+    <link rel="stylesheet" href="style.css" referrerpolicy="text/css">
+    <title>Tail wind</title>
+</head>
+<body>
+    <div>
+        <div id="date_div" class="shadow">
+            <p class="date_time" id="time">00:00:00</p>
+            <p class="date_time" id="date">00.00.0000</p>
+        </div>
+        <div id="list_div" class="shadow">
+            <select name="capitalo" id="capitalo">
+                <option label="Moscow" value="3">
+                <option label="Washington" value="-4">
+                <option label="Beijing" value="8">
+                <option label="London" value="1">
+                <option label="Tokyo" value="9">
+            </select>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        let doc_time = document.getElementById('time')
+        let doc_date = document.getElementById('date')
+
+        let doc_s = document.getElementById('capitalo')
+
+        setInterval(function(){
+            const date = new XMLHttpRequest()
+            date.open('GET', 'https://worldtimeapi.org/api/timezone/Europe/London', false)
+            date.send()
+            text = new Date(date.responseText.split(',')[2].slice(12,-1))
+
+            let arr = []
+            let hours = text.getHours() + Number(doc_s.value) - 7
+            let minutes = text.getMinutes()
+            let seconds = text.getSeconds()
+            let days = text.getDate()
+            let months = text.getMonth() + 1
+            let years = text.getFullYear()
+
+            arr.push(hours)
+            arr.push(minutes)
+            arr.push(seconds)
+            arr.push(days)
+            arr.push(months)
+            arr.push(years)
+
+            let array = arr.map(function(item){
+                item = String(item)
+
+                if(item.length < 2){
+                    item = '0' + item
+                }
+                return item
+            })
+
+            let final_time = array[0] + ':' + array[1] + ':' + array[2]
+            let final_date = array[3] + '.' + array[4] + '.' + array[5]
+
+            doc_time.textContent = final_time
+            doc_date.textContent = final_date
+
+            doc_s.addEventListener("change", function(){
+                doc_time.textContent = "00:00:00"
+                doc_date.textContent = "00.00.0000"
+                doc_time.style="animation: trans 1s"
+                doc_date.style="animation: trans 1s"
+                setTimeout(function(){
+                    doc_time.style="animation: kostyl 1s"
+                    doc_date.style="animation: kostyl 1s"
+                },1000)
+            })
+        }, 1000)
+    </script>
+</body>
+</html>
