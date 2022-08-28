@@ -36,12 +36,13 @@
 
         setInterval(function(){
             const date = new XMLHttpRequest()
-            date.open('GET', 'https://worldtimeapi.org/api/timezone/Europe/London', false)
+            date.open('GET', 'https://worldtimeapi.org/api/timezone/Europe/Dublin', false)
             date.send()
             text = new Date(date.responseText.split(',')[2].slice(12,-1))
+            text.setHours(text.getHours() + Number(doc_s.value) - 6)
 
             let arr = []
-            let hours = text.getHours() + Number(doc_s.value) - 7
+            let hours = text.getHours()
             let minutes = text.getMinutes()
             let seconds = text.getSeconds()
             let days = text.getDate()
